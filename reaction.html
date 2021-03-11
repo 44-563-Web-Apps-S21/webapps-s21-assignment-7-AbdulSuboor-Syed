@@ -21,32 +21,34 @@
     
   <script>
   myTime = undefined;
-  
-  function recordReact() {
-    myTime = Date.now();
-    console.log("Time : " + myTime);
-  }
 
-  function startTime() {
-    console.log(countdown);
-    for (var i = 0; i < 3; i++) {
-      setTimeout(function (i) {
-        document.getElementById("countdown").innerHTML = i
-      }, (((3 - 1) - i) * 1000), i);
+function recordReact() {
+  myTime = Date.now();
+  console.log("Time : " + myTime);
+}
 
+function startTime() {
+  var RandomCount=Math.floor(Math.random()*(10-2)+2)
+    for(let i=0;i<RandomCount+1;i++){
+      var j=(RandomCount-i)*1000;
+      var p=i;
+      setTimeout(() => {
+        document.getElementById("countdown").innerHTML = i;
+      }, j)
     }
 
-    setTimeout(function (i) {
-      console.log(i)
-      if (myTime == undefined) {
-        document.getElementById("target").innerHTML = "Too Slow"
+    setTimeout(() => {
+      if(myTime == undefined){
+        document.getElementById("target").innerHTML = "Too Slow";
       }
-      else {
+      
+      else{
         var buttonTime = Date.now();
-        var elapsedTime = buttonTime - myTime;
-        document.getElementById("target").innerHTML = "Time was " + elapsedTime;
+        var diff=buttonTime-myTime;
+        document.getElementById("target").innerHTML = "Time was "+diff+" ms"
+        myTime=undefined
       }
-    }, (3 - 1)*1000)
+    }, RandomCount*1000)
   }
   </script>
 

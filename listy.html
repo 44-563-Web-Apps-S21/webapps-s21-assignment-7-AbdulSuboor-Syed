@@ -4,7 +4,7 @@
 	<style>
     .flex-container {
       display: flex;  flex-direction:row;
-      background-color: red;
+      background-color: gray;
   }
 
 .flex-container > div {  /*div children of the flex container*/
@@ -42,33 +42,35 @@
 
 </body>
 <script>
-function makeNewDiv(){
+	function makeNewDiv(){
 
-	let element = document.createElement("div")
-	element.innerHTML = document.getElementById("listname").value
-	element.className = "listy"
+let element = document.createElement("div")
+element.innerHTML = document.getElementById("listname").value
+element.className = "listy"
 
-	var listyItem = document.getElementsByClassName("listy");
+var listyItems = document.getElementsByClassName("listy");
 
-	var i = 0;
+var i = 0;
 
-	if (listyItem.lengith > 8) {
-		for (var j = 0; j < 8; j++) {
-			if (listyItem[k].innerHTML == element.innerHTML) {
-				listyItem[k].remove();
-				console.log("We are removing duplicates");
-				i = 1;
-				break;
-			}
-		}
-		if (i == 0) {
-			listyItem[0].remove();
+if (listyItems.length > 8) {
+	for (var j = 0; j < 8; j++) {
+		if (listyItems[j].innerHTML == element.innerHTML) {
+			listyItems[j].remove();
+			console.log("We are removing duplicates");
+			i = 1;
+			break;
 		}
 	}
-
-	
-	document.getElementById('target').appendChild(element)
-	
+	if (i == 0) {
+		var rand=Math.floor(Math.random()*(listyItems.length-0)+0)
+		listyItems[rand].remove();
+	}
 }
+
+document.getElementById('target').appendChild(element)
+
+}
+	
+
 </script>
 </html>	
