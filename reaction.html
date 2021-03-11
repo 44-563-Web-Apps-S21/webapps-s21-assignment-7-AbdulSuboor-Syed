@@ -10,23 +10,17 @@
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </head>
 <body>
-
   <h1>Syed Abdul Suboor reaction timer</h1>
-
   <div id="target">Your time</div>
   <div id="countdown">Count</div>
-  
   <button type="button"  onclick="startTime()">Start Timer</button>
   <button type="button"  onclick="recordReact()">React Now</button>
-    
   <script>
   myTime = undefined;
-
 function recordReact() {
   myTime = Date.now();
   console.log("Time : " + myTime);
 }
-
 function startTime() {
   var RandomCount=Math.floor(Math.random()*(10-2)+2)
     for(let i=0;i<RandomCount+1;i++){
@@ -36,7 +30,6 @@ function startTime() {
         document.getElementById("countdown").innerHTML = i;
       }, j)
     }
-
     setTimeout(() => {
       if(myTime == undefined){
         document.getElementById("target").innerHTML = "Too Slow";
