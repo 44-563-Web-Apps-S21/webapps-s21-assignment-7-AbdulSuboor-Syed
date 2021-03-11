@@ -38,39 +38,33 @@
 <p> Press the button to create an new element of type div and then add it to the container.
 	</p>
 	<button onclick="makeNewDiv()">Add one</button>
-
-
-</body>
-<script>
-	function makeNewDiv(){
-
-let element = document.createElement("div")
-element.innerHTML = document.getElementById("listname").value
-element.className = "listy"
-
-var listyItems = document.getElementsByClassName("listy");
-
-var i = 0;
-
-if (listyItems.length > 8) {
-	for (var j = 0; j < 8; j++) {
-		if (listyItems[j].innerHTML == element.innerHTML) {
-			listyItems[j].remove();
-			console.log("We are removing duplicates");
-			i = 1;
-			break;
+	<script>
+		function makeNewDiv(){
+		let element = document.createElement("div")
+		element.innerHTML = document.getElementById("listname").value
+		element.className = "listy"
+		var listyItems = document.getElementsByClassName("listy");
+		var i = 0;
+		if (listyItems.length > 8) {
+			for (var j = 0; j < 8; j++) {
+				if (listyItems[j].innerHTML == element.innerHTML) {
+					listyItems[j].remove();
+					console.log("We are removing duplicates");
+					i = 1;
+					break;
+				}
+			}
+			if (i == 0) {
+				var rand=Math.floor(Math.random()*(listyItems.length-0)+0)
+				listyItems[rand].remove();
+			}
 		}
-	}
-	if (i == 0) {
-		var rand=Math.floor(Math.random()*(listyItems.length-0)+0)
-		listyItems[rand].remove();
-	}
-}
+		document.getElementById('target').appendChild(element)
+		
+		}
+			
+		
+		</script>
+</body>
 
-document.getElementById('target').appendChild(element)
-
-}
-	
-
-</script>
 </html>	
